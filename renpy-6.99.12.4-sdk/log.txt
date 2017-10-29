@@ -1,39 +1,39 @@
-Sun Oct 29 04:46:53 2017
+Sun Oct 29 10:49:02 2017
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187
  
 
-Bootstrap to the start of init.init took 0.39s
-Early init took 0.06s
-Loader init took 0.15s
-Loading error handling took 0.10s
-Loading script took 1.47s
-Loading persistent took 0.02s
+Bootstrap to the start of init.init took 0.10s
+Early init took 0.02s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.41s
+Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 1.21s
-Loading analysis data took 0.08s
-Analyze and compile ATL took 0.02s
+Running init code took 0.27s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Dump and make backups. took 0.00s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 DPI scale factor: 1.250000
-Creating interface object took 0.01s
+Creating interface object took 0.02s
 Cleaning stores took 0.00s
-Init translation took 0.07s
-Build styles took 0.01s
-Load screen analysis took 0.08s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
-Prepare screens took 0.34s
+Prepare screens took 0.07s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.04s
+Interface start took 0.01s
 Couldn't import angle renderer:
 Traceback (most recent call last):
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\display\core.py", line 1810, in make_draw
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\renpy\display\core.py", line 1810, in make_draw
     __import__(mod)
 ImportError: DLL load failed: The specified module could not be found.
 Unknown renderer: angle
@@ -258,15 +258,14 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 4.82699990273s
+Total time until interface ready: 1.60800004005s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.031000 seconds.
-- Frame drawn at 0.047000 seconds.
-- Frame drawn at 0.062000 seconds.
-- Frame drawn at 0.078000 seconds.
-- 0.078000 seconds to render 5 frames.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             00) physical=(1000, 750) drawable=(1000, 750)
+- Frame drawn at 0.010000 seconds.
+- Frame drawn at 0.028000 seconds.
+- Frame drawn at 0.045000 seconds.
+- Frame drawn at 0.061000 seconds.
+- 0.061000 seconds to render 5 frames.
 The window was minimized.
 The window was restored.
 
@@ -285,3 +284,9 @@ The window was restored.
 primary display bounds: (0, 0, 1920, 1080)
 Windowed mode.
 Screen sizes: virtual=(800, 600) physical=(1000, 750) drawable=(1000, 750)
+The window was minimized.
+The window was restored.
+
+primary display bounds: (0, 0, 1920, 1080)
+Windowed mode.
+Screen sizes: virtual=(

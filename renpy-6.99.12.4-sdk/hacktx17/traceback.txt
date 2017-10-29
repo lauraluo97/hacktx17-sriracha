@@ -1,28 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 93, in script
-    init python:
-  File "game/script.rpy", line 104, in <module>
-    Main.main()
-NameError: name 'Main' is not defined
+  File "game/script.rpy", line 166, in script
+    $ score = MiniGame.main()
+  File "game/script.rpy", line 166, in <module>
+    $ score = MiniGame.main()
+IOError: Couldn't find file 'data/Block.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\bootstrap.py", line 295, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\main.py", line 419, in main
-    game.context().run(node)
-  File "game/script.rpy", line 93, in script
-    init python:
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\ast.py", line 814, in execute
+  File "game/script.rpy", line 166, in script
+    $ score = MiniGame.main()
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\renpy\ast.py", line 814, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\python.py", line 1719, in py_exec_bytecode
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\renpy\python.py", line 1719, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/script.rpy", line 104, in <module>
-    Main.main()
-NameError: name 'Main' is not defined
+  File "game/script.rpy", line 166, in <module>
+    $ score = MiniGame.main()
+  File "MiniGame.py", line 245, in main
+  File "MiniGame.py", line 206, in on_execute
+  File "MiniGame.py", line 136, in on_init
+  File "MiniGame.py", line 126, in load_image
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\hacktx17\renpygame\image.py", line 32, in load
+    return pygame.image.load(renpy.loader.load(filename), namehint)
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\renpy\loader.py", line 543, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'data/Block.png'.
 
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187

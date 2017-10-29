@@ -2,14 +2,27 @@
 #Minigame code was based off from this site:
 #https://pythonspot.com/en/snake-with-pygame/ <- code guide for minigame
 #Step by step guide to create a snake minigame
+#Verision that crashes and is not responsive when loaded onto game 
 
 
-from pygame.locals import *
+import random, os.path
+
+#import basic pygame modules
+import renpygame as pygame
+from renpygame.locals import *
+
+import renpy.store as store
+import renpy.exports as renpy
 from random import randint
-import pygame
 import time
 from pygame import surface
- 
+
+SCREENRECT     = Rect(0, 0, 640, 480)
+SCORE = 0
+
+def os_path_join(a, b):
+    return a + "/" + b
+
 class Apple:
     x = 0
     y = 0
@@ -105,14 +118,24 @@ class App:
         self.player = Player(3) 
         self.apple = Apple(5,5)
         self.counter = 0;
+        self.check = True
+    
+    def load_image(self,file):
+        "loads an image, prepares it for play"
+        #file = os_path_join('data', file)
+        try:
+            surface = pygame.image.load(file)
+        except pygame.error:
+            raise SystemExit, 'Could not load image "%s" %s'%(file, pygame.get_error())
+        return surface.convert()
  
     def on_init(self):
         pygame.init()
         self._display_surf = pygame.display.set_mode((self.windowWidth,self.windowHeight), pygame.HWSURFACE)
         pygame.display.set_caption('MiniGame')
         self._running = True
-        self._image_surf = pygame.image.load("Block.png").convert()
-        self._apple_surf = pygame.image.load("Chilli.png").convert()
+        self._image_surf = self.load_image('Block.png')
+        self._apple_surf = self.load_image('Chilli.png')
  
     def on_event(self, event):
         if event.type == QUIT:
@@ -120,51 +143,50 @@ class App:
  
     def on_loop(self):
         self.player.update()
- 
-        # does snake eat apple?
-        for i in range(0,self.player.length):
-            if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i], self.player.y[i],44):
-                self.apple.x = randint(2,9) * 44
-                self.apple.y = randint(2,9) * 44
-                self.player.length = self.player.length + 1
-                self.counter = self.counter + 1;
+        # does snake eat apple
+        if self.check == True:
+            for i in range(0,self.player.length):
+                if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i], self.player.y[i],44):
+                   self.apple.x = randint(2,9) * 44
+                   self.apple.y = randint(2,9) * 44
+                   self.player.length = self.player.length + 1
+                   self.counter = self.counter + 1;
           #check if it collides with wall       
-        for i in range(2,self.player.length):
-            if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[0],self.windowHeight,40):
-                print(self.counter)
-                time.sleep(5)
-                exit(0)
-        pass
+            for i in range(2,self.player.length):
+                if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[0],self.windowHeight,40):
+                   time.sleep(5)
+                   self.check = False
+            pass
     
-        for i in range(3,self.player.length):
-            if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[0],0,40):
-                print(self.counter)
-                time.sleep(5)
-                exit(0)
-        pass
+            for i in range(3,self.player.length):
+                if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[0],0,40):
+                   print(self.counter)
+                   time.sleep(5)
+                   self.check = False
+            pass
     
-        for i in range(4,self.player.length):
-            if self.game.isCollision(self.player.x[0],self.player.y[0],0,self.player.y[0],40):
-                print(self.counter)
-                time.sleep(5)
-                exit(0)
-        pass
-        for i in range(0,self.player.length):
-            if self.game.isCollision(self.player.x[0],self.player.y[0],self.windowWidth,self.player.y[0],40):
-                print(self.counter)
-                time.sleep(5)
-                exit(0)
-        pass
+            for i in range(4,self.player.length):
+                if self.game.isCollision(self.player.x[0],self.player.y[0],0,self.player.y[0],40):
+                   print(self.counter)
+                   time.sleep(5)
+                   self.check = False
+            pass
+
+            for i in range(0,self.player.length):
+                if self.game.isCollision(self.player.x[0],self.player.y[0],self.windowWidth,self.player.y[0],40):
+                   print(self.counter)
+                   time.sleep(5)
+                   self.check = False
+            pass
         # does snake collide with itself?
-        for i in range(2,self.player.length):
-            if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i], self.player.y[i],40):
-                print("You lose! Collision: ")
-                print("x[0] (" + str(self.player.x[0]) + "," + str(self.player.y[0]) + ")")
-                print("x[" + str(i) + "] (" + str(self.player.x[i]) + "," + str(self.player.y[i]) + ")")
-                print(self.counter)
-                time.sleep(10)
-                exit(0)
-        pass
+            for i in range(2,self.player.length):
+                if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i], self.player.y[i],40):
+                   print(self.counter)
+                   time.sleep(10)
+                   self.check = False
+            pass 
+        else:
+            pass
     def gameCounter(self):
         return self.counter
        
@@ -172,10 +194,10 @@ class App:
         self._display_surf.fill((0,0,0))
         self.player.draw(self._display_surf, self._image_surf)
         self.apple.draw(self._display_surf, self._apple_surf)
-        font = pygame.font.Font(None, 36)
-        text = font.render(str(self.counter), 1, (255, 255, 255))
-        self._display_surf.blit(text,(50,50))
-        pygame.display.flip()
+        #font = pygame.font.Font(None, 36)
+        #text = font.render(str(self.counter), 1, (255, 255, 255))
+        #self._display_surf.blit(text,(50,50))
+        #pygame.display.flip()
  
     def on_cleanup(self):
 
@@ -209,7 +231,20 @@ class App:
  
             time.sleep (30.0 / 1000.0);
         self.on_cleanup()
- 
-if __name__ == "__main__" :
+
+def main(winstyle = 0):
+    pygame.init()
+    if store._preferences.fullscreen:
+        winstyle = FULLSCREEN
+    else:
+        winstyle = 0
+
+    bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
+    screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
+
     theApp = App()
     theApp.on_execute()
+    return gameCounter()
+
+if __name__ == "__main__" :
+    main()

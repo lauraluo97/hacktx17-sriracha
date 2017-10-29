@@ -165,9 +165,9 @@ class Score(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
 
-        self.font = pygame.font.Font("DejaVuSans.ttf", 20)
+       # self.font = pygame.font.Font("DejaVuSans.ttf", 20)
 
-        self.font.set_italic(1)
+        #self.font.set_italic(1)
         self.color = (255, 255, 255, 255)
         self.lastscore = -1
         self.update()
@@ -177,7 +177,7 @@ class Score(pygame.sprite.Sprite):
         if SCORE != self.lastscore:
             self.lastscore = SCORE
             msg = "Score: %d" % SCORE
-            self.image = self.font.render(msg, 0, self.color)
+            #self.image = self.font.render(msg, 0, self.color)
 
 
 
@@ -258,8 +258,8 @@ def main(winstyle = 0):
     player = Player()
     Alien() #note, this 'lives' because it goes into a sprite group
 
-    if pygame.font:
-        all.add(Score())
+    #if pygame.font:
+        #all.add(Score())
 
     while player.alive():
 

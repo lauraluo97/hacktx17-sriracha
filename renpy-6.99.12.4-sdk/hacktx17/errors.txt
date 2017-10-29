@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 22: expected statement.
-    import Main
-               ^
+File "game/script.rpy", line 163: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    $ renpy.free_memory()
+    ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

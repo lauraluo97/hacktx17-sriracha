@@ -26,7 +26,8 @@ define friend = Character('Friend', color="#c8c8ff")
 define monologue = Character("(monologue)")
 
 # The game starts here.
-$ import Main
+init:
+    $ import MiniGame
 
 label start:
     $ bl_game = False
@@ -160,23 +161,15 @@ label start:
     
     "Please proceed to play minigame and collect 10 chilli peppers"
     "Minimize visual novel application and please proceed to renpy-6.99.12.4-sdk -> hacktx17 -> game -> Main.py"
-    
 
-#sinc the game/minigame
-##minigame does not work will hack and take alternative route    
-#    init python:
-#       import renpygame
-#       import renpygame as pygame
-#       from renpygame.locals import *
-       
-#       def set_mode():
-#           if _preferences.fullscreen:
-#               fsflag = FULLSCREEN
-#           else:
-#               fsflag = 0
-#           screen = renpygame.display.setmode((800,600),fsflag,32)
-#           return screen
-#######
+##sync the game/minigame
+##minigame does not work will hack and take alternative route  
+## Code that sincs miniGame.py. Uncomment this to proceed if miniGame.py works.     
+##    $ renpy.free_memory()
+##    $ score = MiniGame.main()
+
+  
+
         
 s " How many chili peppers did you get?"
 menu:

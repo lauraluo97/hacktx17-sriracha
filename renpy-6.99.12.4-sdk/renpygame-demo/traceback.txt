@@ -3,23 +3,21 @@
 While running game code:
   File "/home/tom/ab/renpy/renpygame-demo/game/script.rpy", line 31, in script
   File "/home/tom/ab/renpy/renpygame-demo/game/script.rpy", line 31, in <module>
-error: Library not initialized
+AttributeError: 'Score' object has no attribute 'font'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "/home/tom/ab/renpy/renpygame-demo/game/script.rpy", line 31, in script
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\ast.py", line 814, in execute
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\renpy\ast.py", line 814, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpy\python.py", line 1719, in py_exec_bytecode
+  File "C:\Users\Laura Luo\Desktop\renpy\renpy-6.99.12.4-sdk\renpy\python.py", line 1719, in py_exec_bytecode
     exec bytecode in globals, locals
   File "/home/tom/ab/renpy/renpygame-demo/game/script.rpy", line 31, in <module>
   File "aliens.py", line 262, in main
-  File "aliens.py", line 168, in __init__
-  File "C:\Users\Laura Luo\Desktop\renpy-6.99.12.4-sdk\renpygame-demo\renpygame\font.py", line 39, in Font
-    return pygame.font.Font(renpy.loader.transfn(filename), size)
-  File "src/pygame_sdl2/font.pyx", line 67, in pygame_sdl2.font.Font.__init__ (gen\pygame_sdl2.font.c:1637)
-error: Library not initialized
+  File "aliens.py", line 173, in __init__
+  File "aliens.py", line 180, in update
+AttributeError: 'Score' object has no attribute 'font'
 
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187
