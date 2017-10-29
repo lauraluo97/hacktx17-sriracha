@@ -1,0 +1,38 @@
+{
+  "pc": {
+    "sums_url": "the_question-1.0-pc.sums", 
+    "version": "d75f1d81c1583485fe407075a75e5358056b24749a73db399c0015938667a9fa", 
+    "zsync_url": "the_question-1.0-pc.zsync", 
+    "json_url": "the_question-1.0-pc.update.json", 
+    "pretty_version": "1.0", 
+    "sums_size": 4484, 
+    "digest": "6926738831d415625b7d172b6af08e19d0df7808d0831d3a0e65057d7c03777c"
+  }, 
+  "mac": {
+    "sums_url": "the_question-1.0-mac.sums", 
+    "version": "93ba3246b37c479b2affee8d4601dd2f7d2b1f6cfd8d2e8211f88c634858f12e", 
+    "zsync_url": "the_question-1.0-mac.zsync", 
+    "json_url": "the_question-1.0-mac.update.json", 
+    "pretty_version": "1.0", 
+    "sums_size": 1876, 
+    "digest": "fbda4603493dd31f4d696affc63fd07b526e531c388869731b8ff2e475da9f7c"
+  }, 
+  "win": {
+    "sums_url": "the_question-1.0-win.sums", 
+    "version": "251417f54de8af99f027c131bcdffdb5de49668f68cd044cea5dc46dee52bcc3", 
+    "zsync_url": "the_question-1.0-win.zsync", 
+    "json_url": "the_question-1.0-win.update.json", 
+    "pretty_version": "1.0", 
+    "sums_size": 2060, 
+    "digest": "472d43e566883a24c6f66e0e96cf936c47a1a4fd0bf7989f2cb7edec510bfb11"
+  }, 
+  "linux": {
+    "sums_url": "the_question-1.0-linux.sums", 
+    "version": "63f9d6017b746bcf1301eac85a788889f902e65406db26edeb9da1ed9d620076", 
+    "zsync_url": "the_question-1.0-linux.zsync", 
+    "json_url": "the_question-1.0-linux.update.json", 
+    "pretty_version": "1.0", 
+    "sums_size": 3196, 
+    "digest": "0e907e7848395453e8ac9593f6fb0090205f5c614f6a809e7ec58914c48d3ab2"
+  }
+}
